@@ -28,3 +28,5 @@ docker run -d \
     -v /mybundle_dir:/bundle \
     -p 8080:80 \
     meteorhacks/meteord:base
+    
+    
