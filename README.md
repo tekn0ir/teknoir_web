@@ -1,8 +1,10 @@
+To deploy on Heroku:
 
+Just push changes to https://github.com/tekn0ir/teknoir_web.git master.
 
-Deploy the page:
+Deploy the page on amazon:
 
-docker build -t teknboir/web .
+docker build -t teknoir/web .
 
 docker-compose up
 
@@ -12,7 +14,6 @@ docker run -d \
     -e MONGO_OPLOG_URL=mongodb://oplog_url \
     -p 8080:80 \
     teknoir/web
-    
     
 Run locally:
  
