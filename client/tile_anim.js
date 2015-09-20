@@ -71,13 +71,13 @@ setup = function() {
     rect_outer.attr({
         fill: "#fff"
     });
-    //var rect_inner = snap.rect(3, 3, size.x-6, size.y-6);
-    //rect_inner.attr({
-    //    fill: "#000"
-    //});
+    var rect_inner = snap.rect(3, 3, size.x-6, size.y-6);
+    rect_inner.attr({
+        fill: "#000"
+    });
 
 
-    mask = snap.group(rect_outer);// , rect_inner, teknoir);
+    mask = snap.group(rect_outer, rect_inner, teknoir);
 
     tiles.attr({
         mask: mask
