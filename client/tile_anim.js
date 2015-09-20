@@ -1,5 +1,5 @@
 // parameters
-var size = { x: 600, y: 220, tile: 65},
+var size = { x: 600, y: 220, tile: 40},
     speed = 50,
     tile_nb = { x: Math.ceil(size.x/size.tile)+1, y: Math.ceil(size.y/size.tile)+1 },
     colors = ["#ED1156", "#ED194E", "#ED2247", "#ED2B3F", "#EE3438", "#EE3D31", "#EE4529", "#EF4E22", "#EF571A", "#EF6013", "#F0690C", "#E8720E", "#E17B10", "#D98512", "#D28E14", "#CB9816", "#C3A118", "#BCAA1A", "#B4B41C", "#ADBD1E", "#A6C721", "#96C62F", "#87C53E", "#78C44D", "#69C35C", "#5AC26B", "#4AC17A", "#3BC089", "#2CBF98", "#1DBEA7", "#0EBDB6", "#0EBAB0", "#0EB8AA", "#0EB5A4", "#0EB39E", "#0EB098", "#0EAE92", "#0EAB8C", "#0EA986", "#0EA680", "#0EA47B", "#269376", "#3F8372", "#58736E", "#71626A", "#895266", "#A24262", "#BB315E", "#D4215A"],
@@ -10,18 +10,19 @@ var size = { x: 600, y: 220, tile: 65},
     setup = false,
     snap;
 
-
 var interval;
+
+var random = new Alea(1);
+var simplex_noise = new SimplexNoise(random);
 
 gen = function(add) {
     var values = [], foo;
 
     for (var l=0; l<tile_nb.y; l++) {
         for (var c=0; c<tile_nb.x; c++) {
-            Meteor.call('noise2D',c/10, l/10, function(err, foo){
-                foo = Math.round((foo+1) / 2 * nb_colors) + add;
-                values.push(foo, foo+1, foo+2, foo+3);
-            });
+            var noise = simplex_noise.noise2D(c, l);
+            var foo = Math.round((noise+1) / 2 * nb_colors) + add;
+            values.push(foo, foo+1, foo+2, foo+3);
         }
     }
 
@@ -41,6 +42,7 @@ setup = function() {
             var poly = snap.polygon([[pos.x, pos.y], [(pos.x+size.tile), pos.y], [(pos.x+size.tile/2), (pos.y+size.tile/2)]]);
             objects.push(poly);
             tiles.add(poly);
+
             // tile 2
             //cmd = (pos.x+size.tile) +','+ (pos.y+size.tile) +' '+ pos.x +','+ (pos.y+size.tile) +' '+ (pos.x+size.tile/2) +','+ (pos.y+size.tile/2);
             poly = snap.polygon([[pos.x+size.tile, (pos.y+size.tile)], [pos.x, (pos.y+size.tile)], [(pos.x+size.tile/2), (pos.y+size.tile/2)]]);
@@ -121,18 +123,3 @@ Template.teknoir_color_tiles.created = function() {
 Template.teknoir_color_tiles.destroyed = function() {
     Meteor.clearInterval(interval);
 };
-
-Template.content.helpers({
-    choose: function () {
-        var rnd = Math.round(Math.random() * 1000) % 3;
-        console.log(rnd);
-        switch (rnd) {
-            case 0:
-                return 'teknoir_color_tiles';
-            case 1:
-                return 'teknoir_glitch';
-            case 2:
-                return 'teknoir_stroke';
-        }
-    }
-});
