@@ -1,0 +1,11 @@
+# deploy_docker.yml
+
+- hosts: ec2hosts
+  name: configuration play
+  user: ec2-user
+  gather_facts: true
+
+  tasks:
+     - name: Check NTP service
+       service: name=ntpd state=started
+
