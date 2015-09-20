@@ -7,13 +7,9 @@ var size = { x: 600, y: 220, tile: 40},
     values = [],
     nb_colors = colors.length,
     counter = 0,
-    setup = false,
-    snap;
+    setup = false;
 
-var interval;
-
-var random = new Alea(1);
-var simplex_noise = new SimplexNoise(random);
+var interval, alea, simplex_noise, snap;
 
 gen = function(add) {
     var values = [], foo;
@@ -75,13 +71,13 @@ setup = function() {
     rect_outer.attr({
         fill: "#fff"
     });
-    var rect_inner = snap.rect(3, 3, size.x-6, size.y-6);
-    rect_inner.attr({
-        fill: "#000"
-    });
+    //var rect_inner = snap.rect(3, 3, size.x-6, size.y-6);
+    //rect_inner.attr({
+    //    fill: "#000"
+    //});
 
 
-    mask = snap.g(rect_outer, rect_inner, teknoir);
+    mask = snap.group(rect_outer);// , rect_inner, teknoir);
 
     tiles.attr({
         mask: mask
@@ -111,6 +107,8 @@ run = function() {
 };
 
 Template.teknoir_color_tiles.created = function() {
+    alea = new Alea(1);
+    simplex_noise = new SimplexNoise(alea);
     snap = Snap();
     snap.attr({
         align: "center",
