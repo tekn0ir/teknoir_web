@@ -1,0 +1,18 @@
+<head>
+    <title>teknoir_web</title>
+</head>
+
+<body>
+<article>
+    {{> content}}
+</article>
+
+<footer>
+    {{> footer}}
+</footer>
+
+</body>
+
+<template name="content">
+    {{> Template.dynamic template=choose}}
+</template>
