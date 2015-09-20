@@ -1,0 +1,87 @@
+/* CSS declarations go here */
+HTML, BODY {
+    height: 100%;
+    overflow: hidden;
+}
+
+BODY {
+    background: -webkit-radial-gradient(center, #082330, #000000);
+    background: radial-gradient(center, #082330, #000000);
+    font: 10em/1 Avenir Next;
+    font-weight: 100;
+    font-size: 120px;
+}
+
+.text--line {
+    font-size: 120px;
+}
+
+svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    margin: 0 auto;
+    display:block;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 20% 80%;
+    stroke-width: 0.5px;
+    -webkit-animation: stroke-offset 19s ease-in-out;
+    animation: stroke-offset 19s ease-in-out;
+}
+.text-copy:nth-child(1) {
+    stroke: #360745;
+    stroke-dashoffset: 20%;
+}
+.text-copy:nth-child(2) {
+    stroke: #D61C59;
+    stroke-dashoffset: 40%;
+}
+.text-copy:nth-child(3) {
+    stroke: #E7D84B;
+    stroke-dashoffset: 60%;
+}
+.text-copy:nth-child(4) {
+    stroke: #EFEAC5;
+    stroke-dashoffset: 80%;
+}
+.text-copy:nth-child(5) {
+    stroke: #1B8798;
+    stroke-dashoffset: 100%;
+}
+
+@-webkit-keyframes stroke-offset {
+    0% {
+        stroke-dashoffset: 100%;
+        stroke-dasharray: 0 10%;
+    }
+}
+
+@keyframes stroke-offset {
+    0% {
+        stroke-dashoffset: 100%;
+        stroke-dasharray: 0 10%;
+    }
+}
+
+.glitch {
+    filter: url(#filter);
+    fill: white;
+    font-weight: 100;
+}
+
+body:after {
+    content: '';
+    display: block;
+    height: 100px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
