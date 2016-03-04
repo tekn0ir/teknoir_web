@@ -4,10 +4,18 @@ HTML, BODY {
     overflow: hidden;
 }
 
+@font-face {
+    font-family: 'teknoir';
+    src: url('fonts/CaviarDreams.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 BODY {
     background: -webkit-radial-gradient(center, #082330, #000000);
     background: radial-gradient(center, #082330, #000000);
-    font: 10em/1 Avenir Next;
+    /* font: 10em/1 teknoir; */
+    font-family: teknoir;
     font-weight: 100;
     font-size: 120px;
 }
