@@ -12,8 +12,10 @@ HTML, BODY {
 }
 
 BODY {
-    background: -webkit-radial-gradient(center, #082330, #000000);
-    background: radial-gradient(center, #082330, #000000);
+    background: -webkit-radial-gradient(center, #ffffff, #f0f0f0);
+    background: radial-gradient(center, #ffffff, #f0f0f0);
+    /*background: -webkit-radial-gradient(center, #082330, #000000);*/
+    /*background: radial-gradient(center, #082330, #000000);*/
     /* font: 10em/1 teknoir; */
     font-family: teknoir;
     font-weight: 100;
@@ -34,31 +36,31 @@ svg {
 }
 
 .text-copy {
-    fill: none;
-    stroke: white;
+    fill: black;
+    stroke: black;
     stroke-dasharray: 20% 80%;
     stroke-width: 0.5px;
     -webkit-animation: stroke-offset 19s ease-in-out;
     animation: stroke-offset 19s ease-in-out;
 }
 .text-copy:nth-child(1) {
-    stroke: #360745;
+    stroke: #fdff00;
     stroke-dashoffset: 20%;
 }
 .text-copy:nth-child(2) {
-    stroke: #D61C59;
+    stroke: #ff001f;
     stroke-dashoffset: 40%;
 }
 .text-copy:nth-child(3) {
-    stroke: #E7D84B;
+    stroke: #ff7d00;
     stroke-dashoffset: 60%;
 }
 .text-copy:nth-child(4) {
-    stroke: #EFEAC5;
+    stroke: #ffc300;
     stroke-dashoffset: 80%;
 }
 .text-copy:nth-child(5) {
-    stroke: #1B8798;
+    stroke: #ff3900;
     stroke-dashoffset: 100%;
 }
 
