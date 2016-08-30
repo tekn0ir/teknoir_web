@@ -12,8 +12,8 @@ HTML, BODY {
 }
 
 BODY {
-    background: -webkit-radial-gradient(center, #ffffff, #f0f0f0);
-    background: radial-gradient(center, #ffffff, #f0f0f0);
+    background: -webkit-radial-gradient(center, #ffffff, #f1f1f1);
+    background: radial-gradient(center, #ffffff, #f1f1f1);
     /*background: -webkit-radial-gradient(center, #082330, #000000);*/
     /*background: radial-gradient(center, #082330, #000000);*/
     /* font: 10em/1 teknoir; */
