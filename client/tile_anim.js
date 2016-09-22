@@ -60,7 +60,7 @@ setup = function() {
         }
     }
 
-    var teknoir = snap.text(size.x/2, size.y/2, "teknoır");
+    var teknoir = snap.text(size.x/2, size.y/2, "tekn⚈ır");
     teknoir.attr({
         "text-anchor": "middle",
         "alignment-baseline": "middle",
