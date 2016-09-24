@@ -78,10 +78,10 @@ svg {
     }
 }
 
-.glitch {
-    filter: url(#filter);
-    fill: white;
-    font-weight: 100;
+/*.glitch {*/
+    /*filter: url(#filter);*/
+    /*fill: white;*/
+    /*font-weight: 100;*/
 }
 
 body:after {
